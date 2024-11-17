@@ -12,3 +12,12 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+class NoteBase(BaseModel):
+    content: str
+
+class Note(NoteBase):
+    id: int
+
+class NoteCreate(NoteBase):
+    pass

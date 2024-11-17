@@ -5,12 +5,9 @@ from database import Base
 class User(Base):
     __tablename__ = "users"
     
-    #id = Column(Integer, primary_key=True, index=True)
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
     email: Mapped[str] = mapped_column(unique=True)
-    #email = Column(String, unique=True, index=True)
-
 
 class Note(Base):
     __tablename__ = "notes"
