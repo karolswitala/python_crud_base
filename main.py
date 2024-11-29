@@ -1,20 +1,18 @@
-from typing import Annotated
 from datetime import datetime, timedelta, timezone
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from sqlalchemy.orm import Session
-from typing import List
-import uvicorn
-from database import engine, get_db
-from passlib.context import CryptContext
-#from models import User
-from pydantic import BaseModel
-from jwt.exceptions import InvalidTokenError
+from typing import Annotated, List
+
 import jwt
+import uvicorn
+from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from jwt.exceptions import InvalidTokenError
+from passlib.context import CryptContext
+from pydantic import BaseModel
+from sqlalchemy.orm import Session
 
 import models
 import schemas
-
+from database import engine, get_db
 
 # COPY FROM https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/#hash-and-verify-the-passwords
 SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
